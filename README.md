@@ -10,7 +10,7 @@ A robust, object-oriented Java command-line tool that reads daily product sales 
 * **Automated Testing:** Includes JUnit 5 unit tests to verify the accuracy of the revenue and best-seller calculations.
 
 ## Technologies Used
-* **Language:** Java (JDK 11 or higher)
+* **Language:** Java (JDK 21 or higher)
 * **Build & Dependency Management:** Maven
 * **Testing:** JUnit 5
 
