@@ -1,0 +1,9 @@
+product_id, product_name, category, quantity_sold, unit_price
+P001, Wireless Mouse, Electronics, 12, 1500.00
+P002, Notebook, Stationery, 35, 150.00
+P003, USB Hub, Electronics, 8, 200.00
+P004, Ballpoint Pen, Stationery, 100, 25.00
+P005, HDMI Cable, Electronics, 20, 250.00
+P006, Laptop Couch, Stationery, 15, 1650.00
+P007, Coloring Book, Stationery, 12, 200.00
+P008, Ergonomic Desk Chair, Office Supplies, 4, 12000.00
