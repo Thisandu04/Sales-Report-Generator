@@ -1,33 +1,126 @@
-# Command-Line Product Sales Report Generator
+# Sales Report Generator
 
-A robust, object-oriented Java command-line tool that reads daily product sales data from a CSV file, computes key financial metrics and generates a formatted summary report. The report can be output directly to the console or saved to a text file.
+A Java-based application that reads sales data from a CSV file, calculates
+sales statistics, generates a formatted report, and outputs the report
+either to the console or to a file.
 
 ## Features
-* **CSV Data Parsing:** Safely reads and processes product sales records while handling missing or malformed columns.
-* **Financial Calculations:** Computes total revenue per product, revenue per category, best-selling products, and the grand total.
-* **Flexible Output:** Uses the Strategy Pattern (SOLID Open-Closed Principle) to seamlessly route output to either the terminal or a `.txt` file.
-* **Graceful Error Handling:** Provides clear, user-friendly error messages for missing files or invalid command-line arguments.
-* **Automated Testing:** Includes JUnit 5 unit tests to verify the accuracy of the revenue and best-seller calculations.
+
+- Read sales data from a CSV file
+- Calculate total revenue
+- Calculate average revenue
+- Find the best-selling product
+- Calculate revenue by category
+- Generate formatted sales reports
+- Display reports in the console
+- Save reports to a file
+- JUnit 5 unit testing
+- Uses the Strategy Design Pattern for report output
 
 ## Technologies Used
-* **Language:** Java (JDK 21 or higher)
-* **Build & Dependency Management:** Maven
-* **Testing:** JUnit 5
 
-## Project Structure & Team Contributions
-This project was built collaboratively, utilizing the Single Responsibility Principle to divide the codebase:
+- Java 25
+- Maven
+- JUnit 5
+- Git & GitHub
 
-* **Member 1 (Core Logic):** `Product.java`, `SalesCalculator.java`, `ReportFormatter.java`
-* **Member 2 (File I/O & Testing):** `CsvReader.java`, `OutputStrategy.java`, `ConsoleOutputStrategy.java`, `FileOutputStrategy.java`, `SalesCalculatorTest.java`
-* **Member 3 (Execution & Config):** `SalesReporter.java` (Main CLI), `pom.xml`, `.gitignore`, `sales.csv`
+## Project Structure
 
-## Prerequisites
-To run this project, you must have the following installed:
-* [Java Development Kit (JDK) 11+](https://www.oracle.com/java/technologies/downloads/)
-* [Apache Maven](https://maven.apache.org/download.cgi)
+src/
+├── main/
+│   ├── java/
+│   │   ├── Product.java
+│   │   ├── CsvReader.java
+│   │   ├── SalesCalculator.java
+│   │   ├── ReportFormatter.java
+│   │   ├── OutputStrategy.java
+│   │   ├── ConsoleOutputStrategy.java
+│   │   ├── FileOutputStrategy.java
+│   │   └── SalesReporter.java
+│   │
+│   └── resources/
+│
+└── test/
+    └── java/
+        └── SalesCalculatorTest.java
 
-## Installation & Setup
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/Thisandu04/Sales-Report-Generator.git
-   cd Sales-Report-Generator
+## CSV File Format
+
+The input CSV file should contain the following columns:
+
+id,product,category,quantity,unitPrice
+
+Example:
+
+- 1,Laptop,Electronics,5,1000
+- 2,Mouse,Accessories,10,25
+- 3,Keyboard,Accessories,7,50
+- 4,Monitor,Electronics,4,300
+
+## How to Run
+
+### 1. Clone the repository
+
+git clone https://github.com/Thisandu04/Sales-Report-Generator.git
+
+### 2. Navigate to the project
+
+cd Sales-Report-Generator
+
+### 3. Build the project
+
+mvn clean package
+
+### 4. Run the application
+
+java -cp target/classes SalesReporter <csv-file> <output-mode>
+
+Example:
+
+java -cp target/classes SalesReporter sales.csv console
+
+## Output Modes
+
+### Console Output
+
+Generates the report directly in the terminal.
+
+Example:
+
+- Total Revenue: 7450.00
+- Average Revenue: 1862.50
+- Best Selling Product: Laptop
+
+### File Output
+
+The generated report can also be saved to a file.
+
+## Running Tests
+
+Run the JUnit 5 tests using:
+
+mvn clean test
+
+## Design Pattern
+
+This project uses the Strategy Design Pattern for report output.
+
+The `OutputStrategy` interface allows different output methods
+to be used without changing the main reporting logic.
+
+Current strategies:
+
+- ConsoleOutputStrategy
+- FileOutputStrategy
+
+This design makes it easier to add new output methods in the future.
+
+## Error Handling
+
+The application validates the input file and handles errors such as:
+
+- Missing CSV files
+- Invalid CSV data
+- Invalid numeric values
+- Invalid command-line arguments
+
