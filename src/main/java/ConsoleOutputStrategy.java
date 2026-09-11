@@ -1,4 +1,4 @@
-public class  ConsoleOutputStrategy implements OuputStrategy {
+public class  ConsoleOutputStrategy implements OutputStrategy{
     @Override
     public void output(String report) {
         System.out.println(report);
